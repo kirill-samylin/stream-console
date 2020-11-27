@@ -1,91 +1,93 @@
-# stream-console
+# stream-console.js
 
-## Версия 1.0.2
+## Install
 
-#### Установка stream-console
+  ```npm
+  npm install --save stream-console
+  ```
 
-  * Скачайте и установите файл [stream-console.js](https://github.com/kirill-samylin/stream-console/blob/master/js/stream-console.js)
-  * Или сжатый файл [stream-console.min.js](https://github.com/kirill-samylin/stream-console/blob/master/js/stream-console.min.js)
-  * Подключите файл в www/index.html
+#### Usage
 
-    ![image](https://i.ibb.co/VYkPLRp/logger.jpg)
+### In Browser
+Locally…
 
-#### Настройка stream-console
-    ```js
-    // файл index.js
-    const options = {
-        time: 60000, // Указать время в миллисекундах 1000 = 1 секунда. По умолчанию 30 секунд (30000);
-        status: true, // Вернуть логи через time секунд. По умолчанию false;
-        console: true, // Выводить все логи в консоль. По умолчанию false;
-    };
+```html
+<script src="stream-console.js"></script>
+```
+… or Directly from CDN. In which case you don't even need to install.
 
-    const recording = jslogger();
-    //или
-    const recording = jslogger(options);
-    ```
-#### Методы stream-console
-    * activate() - Вызывается, чтобы включить отправку логов.
-    
-        ```js
-        // файл index.js
-        recording.activate();
-        ```
+```html
+<script src="https://cdn.jsdelivr.net/npm/stream-console"></script>
+```
 
-    * setInfo(key, value) - Записывает ключ и значение в первый уровень json. Например: setInfo("package","com.app.test")
-    
-        ```js
-        const obj = {
-            id: 1234
-        };
-        // файл index.js
-        recording.setInfo('id', 1234);
-        // или
-        recording.setInfo(obj); //возможно передать несколько ключей для записи
-        ```
+#### Setting up
+```js
+const options = {
+    time: 60000, // Specify time in milliseconds 1000 = 1 second. The default is 30 seconds (30000);
+    status: true, // Return logs in time seconds. By default, false;
+    console: true, // Print all logs to the console. By default, false;
+};
 
-    * log(arguments) - Записывает текст лога в json во второй уровень с привязкой ко времени.
-    
-        ```js
-        // файл index.js
-        const data = {
-            one: '1',
-            two: '2',
-        };
-        recording.log('start'); //16.10.2020 14:22:33:429:'start'
-        recording.log('info', data); //16.10.2020 14:22:33:558:'info { one: '1', two: '2' }'
-        recording.log('a', 'r', 'g', 'u', 'm', 'e', 'n', 't', 's'); //16.10.2020 14:22:35:004:'a r g u m e n t s'
-        ```
-    * end() - Вызывает отправку логов не дожидаясь time.
-    
-        ```js
-        // файл index.js
-         recording.end();
-        ```
+const recording = jslogger();
+//or
+const recording = jslogger(options);
+```
 
-    * emit - Вызывает событие.
-       ```js
-        // файл index.js
-        recording.emit('test', {name: 'logger'});
-        ```
+#### Methods
 
-    * on - Слушает вызванное событие.
-       ```js
-        // файл index.js
-        recording.on('test', (data) => console.log(data));
-        ```
+* activate() - Called to enable sending logs.
+```js
+recording.activate();
+```
+
+* setInfo(key, value) - Writes the key and value to the first json level. For example: setInfo ("package", "com.app.test");
+```js
+const obj = {
+    id: 1234,
+    name: 'Android'
+};
+recording.setInfo('id', 1234);
+// or
+recording.setInfo(obj); //you can pass multiple keys for writing
+```
+
+* log(arguments) - Writes the text of the log to json in the second level with reference to time.
+```js
+const data = {
+    one: '1',
+    two: '2',
+};
+recording.log('start'); //16.10.2020 14:22:33:429:'start'
+recording.log('info', data); //16.10.2020 14:22:33:558:'info { one: '1', two: '2' }'
+recording.log('a', 'r', 'g', 'u', 'm', 'e', 'n', 't', 's'); //16.10.2020 14:22:35:004:'a r g u m e n t s'
+```
+
+* end() - Causes sending logs without waiting for time.
+```js
+    recording.end();
+```
+
+* emit - Raises an event.
+```js
+recording.emit('test', {name: 'logger'});
+```
+
+* on - Listens to an event.
+```js
+recording.on('test', (data) => console.log(data));
+```
 
 
-#### Получение логов
+#### Getting logs
 
-    * Событие 'logs' обработчика on для получения логов (если метод activate не вызван, то событие не случится).
+* The 'logs' event of the on handler to get the logs (if the activate method is not called, the event will not happen).
+```js
+recording.on('logs', (data) => {
+    console.log(data);
+});
+```
 
-    ```js
-    recording.on('logs', (data) => {
-        console.log(data);
-    });
-    ```
+##### Attention! For the logs to be sent, you need to call the activate () method or send it in the status: true option.
 
-##### Внимание! Чтобы логи были отправлены нужно вызвать метод activate() или отправить в опции status: true.
-
-### Автор:
-* Кирилл Самылин
+### Author:
+* Kirill Samylin
