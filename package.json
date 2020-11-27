@@ -1,0 +1,22 @@
+{
+  "name": "stream-console",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kirill-samylin/stream-console.git"
+  },
+  "keywords": [
+    "logger"
+  ],
+  "author": "Kirill Samylin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kirill-samylin/stream-console/issues"
+  },
+  "homepage": "https://github.com/kirill-samylin/stream-console#readme"
+}
