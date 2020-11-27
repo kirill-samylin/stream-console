@@ -8,7 +8,7 @@
 
 #### Usage
 
-### In Browser
+##### In Browser
 Locally…
 
 ```html
@@ -18,6 +18,11 @@ Locally…
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/stream-console/stream-console.js"></script>
+```
+
+##### Node js
+```js 
+const jslogger = require('stream-console');
 ```
 
 #### Setting up
