@@ -4,8 +4,8 @@
 
 * #### Установка stream-console
 
-  * Скачайте и установите файл [logger.js](https://github.com/R-B-AGroup/mobile_js_logger/blob/master/js/Logger.js)
-  * Или сжатый файл [logger.min.js](https://github.com/R-B-AGroup/mobile_js_logger/blob/master/js/logger.min.js)
+  * Скачайте и установите файл [stream-console.js](https://github.com/kirill-samylin/stream-console/blob/master/js/stream-console.js)
+  * Или сжатый файл [stream-console.min.js](https://github.com/kirill-samylin/stream-console/blob/master/js/stream-console.min.js)
   * Подключите файл в www/index.html
 
     ![image](https://i.ibb.co/VYkPLRp/logger.jpg)

@@ -1,7 +1,7 @@
 {
   "name": "stream-console",
   "version": "1.0.0",
-  "description": "",
+  "description": "stream-console",
   "main": "index.js",
   "scripts": {
     "test": "test"
