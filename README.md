@@ -1,8 +1,8 @@
 # stream-console
 
-## Версия 2.0
+## Версия 1.0.2
 
-* #### Установка stream-console
+#### Установка stream-console
 
   * Скачайте и установите файл [stream-console.js](https://github.com/kirill-samylin/stream-console/blob/master/js/stream-console.js)
   * Или сжатый файл [stream-console.min.js](https://github.com/kirill-samylin/stream-console/blob/master/js/stream-console.min.js)
@@ -10,7 +10,7 @@
 
     ![image](https://i.ibb.co/VYkPLRp/logger.jpg)
 
-* #### Настройка stream-console
+#### Настройка stream-console
     ```js
     // файл index.js
     const options = {
@@ -23,7 +23,7 @@
     //или
     const recording = jslogger(options);
     ```
-* #### Методы stream-console
+#### Методы stream-console
     * activate() - Вызывается, чтобы включить отправку логов.
     
         ```js
@@ -75,7 +75,7 @@
         ```
 
 
-* #### Получение логов
+#### Получение логов
 
     * Событие 'logs' обработчика on для получения логов (если метод activate не вызван, то событие не случится).
 
